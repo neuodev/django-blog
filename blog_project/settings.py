@@ -42,13 +42,20 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
 
     # 3rd party
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
     'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [ # new
+        'rest_framework.authentication.SessionAuthentication',
+       'rest_framework.authentication.TokenAuthentication', # ne
+],
+
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

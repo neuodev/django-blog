@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "==2.2.6"
 djangorestframework = "==3.10.3"
+django-rest-auth = "==0.9.5"
 
 [dev-packages]
 
