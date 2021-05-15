@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Local 
     'posts.apps.PostsConfig',
@@ -44,7 +45,12 @@ INSTALLED_APPS = [
     # 3rd party
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_auth'
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'rest_auth.registration'
+
 ]
 
 REST_FRAMEWORK = {
@@ -55,8 +61,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
        'rest_framework.authentication.TokenAuthentication', # ne
 ],
-
 }
+
+# For Registeration 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SITE_ID = 1 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
